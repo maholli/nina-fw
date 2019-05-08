@@ -113,4 +113,5 @@ void SPISClass::handleSetupComplete()
   xSemaphoreGiveFromISR(_readySemaphore, NULL);
 }
 
-SPISClass SPIS(VSPI_HOST, 1, 14, 23, 18, 5, 33);
+// mosiPin=18, misoPin=19, sclkPin=5, csPin=14, readyPin=13
+SPISClass SPIS(VSPI_HOST, 1, 18, 19, 5, 14, 13);

@@ -91,8 +91,8 @@ void setup() {
   pinMode(15, INPUT);
   pinMode(21, INPUT);
 
-  pinMode(5, INPUT);
-  if (digitalRead(5) == LOW) {
+  pinMode(14, INPUT);
+  if (digitalRead(14) == LOW) {
     if (debug)  ets_printf("*** BLUETOOTH ON\n");
 
     setupBluetooth();
@@ -110,11 +110,9 @@ void setupBluetooth() {
   periph_module_enable(PERIPH_UHCI0_MODULE);
 
 #ifdef UNO_WIFI_REV2
-  uart_set_pin(UART_NUM_1, 1, 3, 33, 0); // TX, RX, RTS, CTS
-#else
-  uart_set_pin(UART_NUM_1, 23, 12, 18, 5);
+  uart_set_pin(UART_NUM_1, 1, 3, 13, 0); // TX, RX, RTS, CTS
 #endif
-  uart_set_hw_flow_ctrl(UART_NUM_1, UART_HW_FLOWCTRL_CTS_RTS, 5);
+  uart_set_hw_flow_ctrl(UART_NUM_1, UART_HW_FLOWCTRL_CTS_RTS, 14);
 
   esp_bt_controller_config_t btControllerConfig = BT_CONTROLLER_INIT_CONFIG_DEFAULT(); 
 
